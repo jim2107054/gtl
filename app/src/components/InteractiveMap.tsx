@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, GeoJSON, ZoomControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Globe, Users, TrendingUp, Building2, Target } from 'lucide-react';
+import { Users, TrendingUp, Building2, Target } from 'lucide-react';
 
 const JTI_BRANCH_COUNTRIES: Record<string, { employees: string, markets: number, growth: string, hub: string, projects: string }> = {
   'Japan': { employees: '12,000', markets: 1, growth: '+2.1%', hub: 'Tokyo HQ', projects: 'Next-Gen Tobacco' },
