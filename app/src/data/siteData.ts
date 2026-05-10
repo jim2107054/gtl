@@ -94,37 +94,37 @@ export const productCategories = [
     id: 'unmanufactured-tobacco',
     title: 'Unmanufactured Tobacco',
     description: 'Premium whole-leaf tobacco sourced from the world\'s finest growing regions.',
-    image: '/assets/products/unmanufactured.jpg',
+    image: 'unmanufactured_tobacco_leaves_1778405022563.png',
   },
   {
     id: 'cut-rag',
     title: 'Cut-Rag',
     description: 'Precision-cut tobacco ready for manufacturing and blending operations.',
-    image: '/assets/products/cut-rag.jpg',
+    image: 'https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?w=600&h=400&fit=crop',
   },
   {
     id: 'cigarette-blend',
     title: 'Cigarette Blend',
     description: 'Expertly formulated blends delivering consistent flavor and quality.',
-    image: '/assets/products/cigarette-blend.jpg',
+    image: 'https://images.unsplash.com/photo-1542617300-99451917ec83?w=600&h=400&fit=crop',
   },
   {
     id: 'stem',
     title: 'Stem',
     description: 'Processed tobacco stems for specialized industrial applications.',
-    image: '/assets/products/stem.jpg',
+    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&h=400&fit=crop',
   },
   {
     id: 'diet-tobacco',
     title: 'DIET Tobacco',
     description: 'Reduced-risk tobacco products developed through advanced science.',
-    image: '/assets/products/diet.jpg',
+    image: 'tobacco_manufacturing_lab_1778404779207.png',
   },
   {
     id: 'toasted-tobacco',
     title: 'Toasted Tobacco',
     description: 'Heat-not-burn ready tobacco for next-generation products.',
-    image: '/assets/products/toasted.jpg',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop',
   },
 ];
 

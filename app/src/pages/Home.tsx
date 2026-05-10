@@ -25,9 +25,11 @@ function HeroSection() {
   return (
     <section ref={sectionRef} className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#1A1A1A]">
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50 z-10" />
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover opacity-60">
-        <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4" />
-      </video>
+      <img 
+        src="premium_tobacco_hero_1778404448515.png" 
+        alt="JTI Corporate Headquarters" 
+        className="absolute inset-0 w-full h-full object-cover opacity-70"
+      />
       <div className="relative z-20 text-center px-4 max-w-3xl mx-auto">
         <h1 className="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
           Welcome to JTI
@@ -109,8 +111,8 @@ function WhoWeAreSection() {
         </div>
         <div className="animate-in mt-12 rounded-2xl overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&h=600&fit=crop" 
-            alt="JTI Business Leader" 
+            src="tobacco_leaves_nature_1778404637722.png" 
+            alt="Premium Tobacco Leaves" 
             className="w-full h-[300px] lg:h-[450px] object-cover hover:scale-[1.02] transition-transform duration-500"
           />
         </div>
@@ -158,8 +160,8 @@ function BrandsPreviewSection() {
         </p>
         <Link to="/brands" className="animate-in block mt-10 relative rounded-2xl overflow-hidden group">
           <img 
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=500&fit=crop" 
-            alt="Friends enjoying together" 
+            src="premium_tobacco_products_1778404673505.png" 
+            alt="Premium Tobacco Products" 
             className="w-full h-[280px] lg:h-[400px] object-cover group-hover:scale-[1.03] transition-transform duration-500"
           />
           <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl px-5 py-3 flex items-center gap-2 group-hover:bg-white transition-colors">
@@ -209,9 +211,9 @@ function ConcernsSection() {
 /* ─── Explore Section (Dark) ─── */
 function ExploreSection() {
   const cards = [
-    { title: 'Freedom to be yourself', image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop' },
-    { title: 'What we offer', image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop' },
-    { title: 'Life at JTI', image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop' },
+    { title: 'Freedom to be yourself', image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop' },
+    { title: 'What we offer', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop' },
+    { title: 'Life at JTI', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop' },
   ];
 
   return (
@@ -258,8 +260,8 @@ function CareersCTASection() {
           </div>
           <div className="flex-1 w-full lg:w-auto">
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
-              alt="Team at JTI" 
+              src="tobacco_corporate_team_1778404763781.png" 
+              alt="Professional Team at JTI" 
               className="w-full h-[250px] lg:h-[300px] object-cover"
             />
           </div>
