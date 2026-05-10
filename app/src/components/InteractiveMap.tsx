@@ -3,20 +3,40 @@ import { MapContainer, GeoJSON, ZoomControl } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Users, TrendingUp, Building2, Target } from 'lucide-react';
 
-const JTI_BRANCH_COUNTRIES: Record<string, { employees: string, markets: number, growth: string, hub: string, projects: string }> = {
-  'Japan': { employees: '12,000', markets: 1, growth: '+2.1%', hub: 'Tokyo HQ', projects: 'Next-Gen Tobacco' },
-  'Switzerland': { employees: '2,500', markets: 1, growth: '+1.5%', hub: 'Geneva HQ', projects: 'Global Logistics' },
-  'United Kingdom': { employees: '1,200', markets: 1, growth: '+3.2%', hub: 'London', projects: 'Sustainability Hub' },
-  'United States of America': { employees: '5,200', markets: 15, growth: '+4.2%', hub: 'Teaneck, NJ', projects: 'Market Expansion' },
-  'Brazil': { employees: '3,800', markets: 8, growth: '+5.8%', hub: 'Santa Cruz do Sul', projects: 'Agriculture Excellence' },
-  'South Africa': { employees: '1,400', markets: 10, growth: '+7.4%', hub: 'Johannesburg', projects: 'Local Community Support' },
-  'Russia': { employees: '8,000', markets: 1, growth: '+2.5%', hub: 'Moscow', projects: 'Manufacturing Optimization' },
-  'China': { employees: '4,500', markets: 5, growth: '+6.1%', hub: 'Hong Kong', projects: 'Innovation Center' },
-  'India': { employees: '2,100', markets: 3, growth: '+8.2%', hub: 'New Delhi', projects: 'Supply Chain Digitalization' },
-  'Bangladesh': { employees: '1,800', markets: 1, growth: '+12.5%', hub: 'Dhaka', projects: 'Green Manufacturing' },
-  'Germany': { employees: '1,500', markets: 1, growth: '+2.0%', hub: 'Trier', projects: 'Filter Technology' },
-  'Turkey': { employees: '2,000', markets: 1, growth: '+4.5%', hub: 'Izmir', projects: 'Regional Distribution' },
-  'Poland': { employees: '2,200', markets: 1, growth: '+3.8%', hub: 'Stary Gostków', projects: 'Automation Initiative' },
+const COUNTRY_TO_REGION: Record<string, string> = {
+  'United States of America': 'North America', 'Canada': 'North America', 'Mexico': 'North America',
+  'Brazil': 'South America', 'Argentina': 'South America', 'Colombia': 'South America', 'Chile': 'South America', 'Peru': 'South America',
+  'United Kingdom': 'Europe', 'France': 'Europe', 'Germany': 'Europe', 'Italy': 'Europe', 'Spain': 'Europe', 'Poland': 'Europe', 'Russia': 'Europe', 'Ukraine': 'Europe', 'Netherlands': 'Europe', 'Belgium': 'Europe', 'Switzerland': 'Europe', 'Sweden': 'Europe', 'Norway': 'Europe', 'Finland': 'Europe', 'Greece': 'Europe', 'Portugal': 'Europe', 'Austria': 'Europe', 'Czech Republic': 'Europe', 'Hungary': 'Europe', 'Romania': 'Europe',
+  'South Africa': 'Africa', 'Nigeria': 'Africa', 'Egypt': 'Africa', 'Algeria': 'Africa', 'Morocco': 'Africa', 'Kenya': 'Africa', 'Ethiopia': 'Africa', 'United Republic of Tanzania': 'Africa', 'Ghana': 'Africa', 'Angola': 'Africa',
+  'Japan': 'Asia Pacific', 'China': 'Asia Pacific', 'India': 'Asia Pacific', 'Indonesia': 'Asia Pacific', 'Australia': 'Asia Pacific', 'Vietnam': 'Asia Pacific', 'Thailand': 'Asia Pacific', 'Malaysia': 'Asia Pacific', 'Philippines': 'Asia Pacific', 'South Korea': 'Asia Pacific', 'Bangladesh': 'Asia Pacific', 'Pakistan': 'Asia Pacific', 'Cambodia': 'Asia Pacific', 'Taiwan': 'Asia Pacific', 'Kazakhstan': 'Asia Pacific',
+  'Saudi Arabia': 'Middle East', 'United Arab Emirates': 'Middle East', 'Turkey': 'Middle East', 'Iran': 'Middle East', 'Iraq': 'Middle East', 'Jordan': 'Middle East', 'Kuwait': 'Middle East', 'Qatar': 'Middle East', 'Oman': 'Middle East', 'Lebanon': 'Middle East', 'Cyprus': 'Middle East',
+};
+
+const JTI_BRANCH_COUNTRIES: Record<string, any> = {
+  'United States of America': {},
+  'Brazil': {},
+  'Egypt': {},
+  'United Republic of Tanzania': {},
+  'Greece': {},
+  'Italy': {},
+  'Belgium': {},
+  'Turkey': {},
+  'Azerbaijan': {},
+  'Kazakhstan': {},
+  'Cyprus': {},
+  'Russia': {},
+  'United Arab Emirates': {},
+  'Lebanon': {},
+  'China': {},
+  'Pakistan': {},
+  'Cambodia': {},
+  'Vietnam': {},
+  'Taiwan': {},
+  'Indonesia': {},
+  'South Korea': {},
+  'Bangladesh': {},
+  'Algeria': {},
+  'Philippines': {},
 };
 
 export default function InteractiveMap({ height = "600px", light = true }) {
@@ -31,39 +51,40 @@ export default function InteractiveMap({ height = "600px", light = true }) {
   }, []);
 
   const countryStyle = (feature: any) => {
-    const hasBranch = JTI_BRANCH_COUNTRIES[feature.properties.ADMIN];
+    const countryName = feature.properties.name || feature.properties.NAME || feature.properties.ADMIN;
+    const hasBranch = JTI_BRANCH_COUNTRIES[countryName];
     return {
-      fillColor: hasBranch ? '#E8F5E9' : (light ? '#F9F9F9' : '#1A1A1A'),
+      fillColor: hasBranch ? '#D4AF37' : '#E5E7EB',
       fillOpacity: 1,
-      weight: 0.5,
-      color: light ? '#E0E0E0' : '#333333',
+      weight: hasBranch ? 1.5 : 0.5,
+      color: hasBranch ? '#996515' : '#D1D5DB',
     };
   };
 
   const onEachCountry = (feature: any, layer: any) => {
-    const countryName = feature.properties.ADMIN;
+    const countryName = feature.properties.name || feature.properties.NAME || feature.properties.ADMIN;
     const branch = JTI_BRANCH_COUNTRIES[countryName];
+    
+    if (branch) {
+      layer.options.className = 'branch-country';
+    }
 
     layer.on({
       mouseover: (e: any) => {
         const l = e.target;
         l.setStyle({
-          fillColor: branch ? '#4CAF50' : '#EEEEEE',
-          fillOpacity: 1,
-          weight: 1.5,
-          color: '#333'
+          fillColor: branch ? '#B8860B' : '#D1D5DB',
+          weight: 2,
+          color: '#666'
         });
-        if (branch) {
-          setHoveredCountry({ name: countryName, ...branch });
-        }
+        setHoveredCountry(countryName);
       },
       mouseout: (e: any) => {
         const l = e.target;
         l.setStyle({
-          fillColor: branch ? '#E8F5E9' : (light ? '#F9F9F9' : '#1A1A1A'),
-          fillOpacity: 1,
-          weight: 0.5,
-          color: light ? '#E0E0E0' : '#333333'
+          fillColor: branch ? '#D4AF37' : '#E5E7EB',
+          weight: branch ? 1.5 : 0.5,
+          color: branch ? '#996515' : '#D1D5DB'
         });
         setHoveredCountry(null);
       }
@@ -79,14 +100,19 @@ export default function InteractiveMap({ height = "600px", light = true }) {
           className="w-full h-full z-10"
           zoomControl={false}
           attributionControl={false}
-          style={{ background: light ? '#fff' : '#0a0a0a' }}
+          dragging={false}
+          scrollWheelZoom={false}
+          doubleClickZoom={false}
+          touchZoom={false}
+          boxZoom={false}
+          keyboard={false}
+          style={{ background: '#fff' }}
         >
           <GeoJSON 
             data={geoData} 
             style={countryStyle}
             onEachFeature={onEachCountry}
           />
-          <ZoomControl position="bottomright" />
         </MapContainer>
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-50">
@@ -94,85 +120,47 @@ export default function InteractiveMap({ height = "600px", light = true }) {
         </div>
       )}
 
-      {/* Floating Instructions */}
-      {!hoveredCountry && (
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 bg-black/5 backdrop-blur-md px-6 py-2.5 rounded-full border border-black/5 text-xs font-semibold text-gray-500 animate-pulse pointer-events-none">
-          Hover over countries to explore our branches
-        </div>
-      )}
 
-      {/* Stats Card - Premium Floating Style */}
+      {/* Minimal Hover Indicator */}
       {hoveredCountry && (
-        <div className="absolute bottom-10 right-10 z-40 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 p-0 rounded-[2rem] min-w-[320px] overflow-hidden animate-in slide-in-from-bottom-6 fade-in duration-300">
-          {/* Card Header */}
-          <div className="bg-[#4CAF50] p-6 text-white relative">
-            <div className="flex items-center gap-3 mb-1">
-              <Building2 className="w-5 h-5 opacity-80" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-70">Official Branch</span>
-            </div>
-            <h4 className="text-2xl font-bold">{hoveredCountry.name}</h4>
-            <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-2xl" />
-          </div>
-          
-          {/* Card Body */}
-          <div className="p-6 space-y-5">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gray-50 p-3 rounded-2xl">
-                <div className="flex items-center gap-2 text-gray-400 mb-1">
-                  <Users className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Staff</span>
-                </div>
-                <p className="text-lg font-bold text-gray-800">{hoveredCountry.employees}</p>
-              </div>
-              <div className="bg-gray-50 p-3 rounded-2xl">
-                <div className="flex items-center gap-2 text-gray-400 mb-1">
-                  <TrendingUp className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Growth</span>
-                </div>
-                <p className="text-lg font-bold text-[#4CAF50]">{hoveredCountry.growth}</p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between text-sm py-1 border-b border-gray-50">
-                <span className="text-gray-500">Regional Hub</span>
-                <span className="font-semibold text-gray-800">{hoveredCountry.hub}</span>
-              </div>
-              <div className="flex items-center justify-between text-sm py-1 border-b border-gray-50">
-                <span className="text-gray-500">Key Project</span>
-                <span className="font-semibold text-gray-800">{hoveredCountry.projects}</span>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <div className="flex items-center gap-2 text-[#4CAF50] text-xs font-bold">
-                <Target className="w-4 h-4" />
-                <span>Active Operational Unit</span>
-              </div>
-            </div>
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-40 bg-white/90 backdrop-blur-md px-8 py-3 rounded-2xl border border-gray-100 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 pointer-events-none">
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-[0.2em] mb-1">
+              {JTI_BRANCH_COUNTRIES[hoveredCountry] ? 'Official Operational Hub' : (COUNTRY_TO_REGION[hoveredCountry] || 'Market Presence')}
+            </span>
+            <h4 className="text-xl font-bold text-gray-800">{hoveredCountry}</h4>
+            {COUNTRY_TO_REGION[hoveredCountry] && JTI_BRANCH_COUNTRIES[hoveredCountry] && (
+              <span className="text-[10px] text-gray-400 font-medium mt-1">{COUNTRY_TO_REGION[hoveredCountry]} Region</span>
+            )}
           </div>
         </div>
       )}
 
       {/* Legend - Simplified */}
-      <div className="absolute bottom-10 left-10 z-30 flex flex-col gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-gray-100 shadow-lg">
+      <div className="absolute bottom-10 left-10 z-30 flex flex-col gap-3 bg-white/95 backdrop-blur-md p-5 rounded-[1.5rem] border border-gray-100 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-[#4CAF50]" />
-          <span className="text-[10px] font-bold text-gray-600 uppercase tracking-wider">Operational Branches</span>
+          <div className="w-3.5 h-3.5 rounded-full bg-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,0.3)]" />
+          <span className="text-[10px] font-bold text-gray-700 uppercase tracking-widest">Global Offices</span>
         </div>
         <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-[#E8F5E9]" />
-          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Market Presence</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-gray-100" />
-          <span className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">Non-Active Regions</span>
+          <div className="w-3.5 h-3.5 rounded-full bg-gray-200" />
+          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Market Reach</span>
         </div>
       </div>
       
       <style dangerouslySetInnerHTML={{ __html: `
-        .leaflet-container { background: transparent !important; }
-        .leaflet-zoom-animated { transition: transform 0.5s cubic-bezier(0,0,0,1); }
+        .leaflet-container { background: transparent !important; cursor: crosshair !important; }
+        
+        @keyframes pulse-gold {
+          0% { fill-opacity: 0.8; }
+          50% { fill-opacity: 1; }
+          100% { fill-opacity: 0.8; }
+        }
+
+        .branch-country {
+          animation: pulse-gold 4s infinite ease-in-out;
+          filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.4));
+        }
       `}} />
     </div>
   );

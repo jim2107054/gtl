@@ -70,7 +70,8 @@ export default function MarketCapture() {
   }, []);
 
   const countryStyle = (feature: any) => {
-    const region = COUNTRY_TO_REGION[feature.properties.ADMIN];
+    const countryName = feature.properties.name || feature.properties.NAME || feature.properties.ADMIN;
+    const region = COUNTRY_TO_REGION[countryName];
     const value = region ? JTI_REGIONS[region as keyof typeof JTI_REGIONS].value : 0;
     return {
       fillColor: value > 0 ? getColor(value) : '#F5F5F5',
@@ -81,7 +82,7 @@ export default function MarketCapture() {
   };
 
   const onEachCountry = (feature: any, layer: any) => {
-    const countryName = feature.properties.ADMIN;
+    const countryName = feature.properties.name || feature.properties.NAME || feature.properties.ADMIN;
     const region = COUNTRY_TO_REGION[countryName];
 
     layer.on({
