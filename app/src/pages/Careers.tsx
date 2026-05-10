@@ -66,7 +66,7 @@ export default function Careers() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Team" className="w-full h-[250px] lg:h-[350px] object-cover" />
+              <img src="tobacco_corporate_team_1778404763781.png" alt="Corporate Team" className="w-full h-[250px] lg:h-[350px] object-cover" />
             </div>
           </div>
         </div>

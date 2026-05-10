@@ -14,6 +14,11 @@ function BrandModal({ brand, onClose }: { brand: typeof brands[0]; onClose: () =
         <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center hover:bg-[#E0E0E0] transition-colors">
           <X className="w-5 h-5" />
         </button>
+        <div className="flex justify-center mb-6">
+          <div className="w-48 h-48 rounded-2xl overflow-hidden bg-[#F5F5F5] border border-[#E0E0E0]">
+            <img src={brand.image} alt={brand.name} className="w-full h-full object-cover" />
+          </div>
+        </div>
         <h3 className="text-2xl font-semibold text-[#1A1A1A] text-center mt-2">{brand.name}</h3>
         <p className="text-[#666666] mt-4 text-center leading-relaxed">{brand.description}</p>
         <div className="flex justify-center gap-8 mt-8">
@@ -58,7 +63,7 @@ export default function Brands() {
       {/* Hero Image */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="rounded-2xl overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=400&fit=crop" alt="Lifestyle" className="w-full h-[200px] lg:h-[300px] object-cover" />
+          <img src="tobacco_leaves_nature_1778404637722.png" alt="Premium Tobacco Leaves" className="w-full h-[200px] lg:h-[300px] object-cover" />
         </div>
       </div>
 
@@ -87,9 +92,12 @@ export default function Brands() {
               <button 
                 key={i} 
                 onClick={() => setSelectedBrand(brand)}
-                className="brand-card bg-white border border-[#E0E0E0] rounded-2xl aspect-square flex items-center justify-center p-8 hover:border-[#4CAF50] hover:shadow-md cursor-pointer transition-all duration-300 group"
+                className="brand-card bg-white border border-[#E0E0E0] rounded-2xl aspect-square flex flex-col items-center justify-center p-6 hover:border-[#4CAF50] hover:shadow-md cursor-pointer transition-all duration-300 group"
               >
-                <span className="text-xl lg:text-2xl font-bold text-[#1A1A1A] group-hover:text-[#4CAF50] transition-colors">{brand.name}</span>
+                <div className="w-full h-full mb-4 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center">
+                  <img src={brand.image} alt={brand.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <span className="text-lg lg:text-xl font-bold text-[#1A1A1A] group-hover:text-[#4CAF50] transition-colors">{brand.name}</span>
               </button>
             ))}
           </div>
@@ -107,10 +115,13 @@ export default function Brands() {
             {rrpBrands.map((brand, i) => (
               <button 
                 key={i} 
-                onClick={() => setSelectedBrand(brand as typeof brands[0])}
-                className="brand-card bg-white border border-[#E0E0E0] rounded-2xl aspect-square flex items-center justify-center p-8 hover:border-[#4CAF50] hover:shadow-md cursor-pointer transition-all duration-300 group"
+                onClick={() => setSelectedBrand(brand as any)}
+                className="brand-card bg-white border border-[#E0E0E0] rounded-2xl aspect-square flex flex-col items-center justify-center p-6 hover:border-[#4CAF50] hover:shadow-md cursor-pointer transition-all duration-300 group"
               >
-                <span className="text-xl font-bold text-[#1A1A1A] group-hover:text-[#4CAF50] transition-colors">{brand.name}</span>
+                <div className="w-full h-full mb-4 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center">
+                  <img src={(brand as any).image} alt={brand.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <span className="text-lg font-bold text-[#1A1A1A] group-hover:text-[#4CAF50] transition-colors">{brand.name}</span>
               </button>
             ))}
           </div>

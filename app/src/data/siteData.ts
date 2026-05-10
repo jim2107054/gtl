@@ -299,21 +299,21 @@ export const productDetailData: Record<string, {
 };
 
 export const brands = [
-  { name: 'Winston', description: 'America\'s iconic cigarette brand, known for its bold taste and distinctive eagle logo.', fact: '130+ Markets', founded: '1954' },
-  { name: 'Mevius', description: 'Premium Japanese brand celebrated for innovative filter technology and refined taste.', fact: 'Premium Segment', founded: '1977' },
-  { name: 'Camel', description: 'Iconic American brand recognized worldwide for its distinctive camel logo.', fact: 'Global Icon', founded: '1913' },
-  { name: 'LD', description: 'Popular European brand offering quality at accessible price points.', fact: '40+ Markets', founded: '1990' },
-  { name: 'Benson & Hedges', description: 'British luxury brand with over 140 years of heritage.', fact: '140+ Years', founded: '1873' },
-  { name: 'Natural American Spirit', description: 'All-natural, additive-free tobacco for discerning consumers.', fact: 'All-Natural', founded: '1982' },
-  { name: 'Sobranie', description: 'The world\'s oldest luxury tobacco brand, founded in 1879.', fact: 'Oldest Luxury', founded: '1879' },
-  { name: 'Silk Cut', description: 'British brand known for its smooth, refined smoking experience.', fact: 'UK Heritage', founded: '1964' },
+  { name: 'Winston', image: 'cigarette_pack.png', description: 'America\'s iconic cigarette brand, known for its bold taste and distinctive eagle logo.', fact: '130+ Markets', founded: '1954' },
+  { name: 'Mevius', image: 'cigarette_pack.png', description: 'Premium Japanese brand celebrated for innovative filter technology and refined taste.', fact: 'Premium Segment', founded: '1977' },
+  { name: 'Camel', image: 'cigarette_pack.png', description: 'Iconic American brand recognized worldwide for its distinctive camel logo.', fact: 'Global Icon', founded: '1913' },
+  { name: 'LD', image: 'cigarette_pack.png', description: 'Popular European brand offering quality at accessible price points.', fact: '40+ Markets', founded: '1990' },
+  { name: 'Benson & Hedges', image: 'cigarette_pack.png', description: 'British luxury brand with over 140 years of heritage.', fact: '140+ Years', founded: '1873' },
+  { name: 'Natural American Spirit', image: 'cigarette_pack.png', description: 'All-natural, additive-free tobacco for discerning consumers.', fact: 'All-Natural', founded: '1982' },
+  { name: 'Sobranie', image: 'cigarette_pack.png', description: 'The world\'s oldest luxury tobacco brand, founded in 1879.', fact: 'Oldest Luxury', founded: '1879' },
+  { name: 'Silk Cut', image: 'cigarette_pack.png', description: 'British brand known for its smooth, refined smoking experience.', fact: 'UK Heritage', founded: '1964' },
 ];
 
 export const rrpBrands = [
-  { name: 'Ploom', description: 'Advanced heat-not-burn device with precision temperature control technology.' },
-  { name: 'Logic', description: 'Premium vaping products with a range of refined flavors.' },
-  { name: 'Nordic Spirit', description: 'Tobacco-free nicotine pouches for discreet use anywhere.' },
-  { name: 'Zyn', description: 'Tobacco-free nicotine pouches in various strengths and flavors.' },
+  { name: 'Ploom', image: 'heated_tobacco.png', description: 'Advanced heat-not-burn device with precision temperature control technology.' },
+  { name: 'Logic', image: 'vaping_device.png', description: 'Premium vaping products with a range of refined flavors.' },
+  { name: 'Nordic Spirit', image: 'nicotine_pouch.png', description: 'Tobacco-free nicotine pouches for discreet use anywhere.' },
+  { name: 'Zyn', image: 'nicotine_pouch.png', description: 'Tobacco-free nicotine pouches in various strengths and flavors.' },
 ];
 
 export const timelineData = [

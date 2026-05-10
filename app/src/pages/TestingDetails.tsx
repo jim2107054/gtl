@@ -66,7 +66,7 @@ export default function TestingDetails() {
               </p>
             </div>
             <div className="animate-in rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=600&fit=crop" alt="Lab" className="w-full h-[300px] lg:h-[400px] object-cover" />
+              <img src="tobacco_manufacturing_lab_1778404779207.png" alt="Quality Assurance Lab" className="w-full h-[300px] lg:h-[400px] object-cover" />
             </div>
           </div>
         </div>

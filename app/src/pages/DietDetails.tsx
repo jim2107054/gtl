@@ -57,7 +57,7 @@ export default function DietDetails() {
               </p>
             </div>
             <div className="animate-in rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop" alt="Lab" className="w-full h-[350px] lg:h-[450px] object-cover" />
+              <img src="tobacco_manufacturing_lab_1778404779207.png" alt="Advanced DIET Laboratory" className="w-full h-[350px] lg:h-[450px] object-cover" />
             </div>
           </div>
         </div>

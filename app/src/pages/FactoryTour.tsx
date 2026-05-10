@@ -7,12 +7,12 @@ import { factoryAreas } from '@/data/siteData';
 
 function VRScene({ sceneIndex }: { sceneIndex: number }) {
   const textureUrls = [
-    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=2048&h=1024&fit=crop',
-    'https://images.unsplash.com/photo-1565514020176-db9ef53d8604?w=2048&h=1024&fit=crop',
-    'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=2048&h=1024&fit=crop',
-    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=2048&h=1024&fit=crop',
-    'https://images.unsplash.com/photo-1553413077-190dd305871c?w=2048&h=1024&fit=crop',
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=2048&h=1024&fit=crop',
+    'premium_tobacco_hero_1778404448515.png',
+    'tobacco_leaves_nature_1778404637722.png',
+    'tobacco_manufacturing_lab_1778404779207.png',
+    'unmanufactured_tobacco_leaves_1778405022563.png',
+    'premium_tobacco_products_1778404673505.png',
+    'tobacco_corporate_team_1778404763781.png',
   ];
 
   const meshRef = useRef<THREE.Mesh>(null);
@@ -47,7 +47,7 @@ export default function FactoryTour() {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0A0A0A]">
         <img 
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop" 
+          src="premium_tobacco_hero_1778404448515.png" 
           alt="Factory preview" 
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />

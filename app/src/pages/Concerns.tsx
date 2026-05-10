@@ -40,11 +40,11 @@ export default function Concerns() {
                 <div className="aspect-video overflow-hidden">
                   <img 
                     src={[
-                      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=450&fit=crop',
-                      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=450&fit=crop',
-                      'https://images.unsplash.com/photo-1591087063707-252781d1de56?w=800&h=450&fit=crop',
-                      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=450&fit=crop'
-                    ][i]} 
+                      'tobacco_leaves_nature_1778404637722.png',
+                      'premium_tobacco_hero_1778404448515.png',
+                      'tobacco_manufacturing_lab_1778404779207.png',
+                      'premium_tobacco_products_1778404673505.png'
+                    ][i % 4]} 
                     alt={card.name} 
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />

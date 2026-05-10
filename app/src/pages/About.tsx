@@ -36,7 +36,7 @@ export default function About() {
     <div className="pt-16 lg:pt-[72px]">
       {/* Hero */}
       <section className="relative min-h-[400px] lg:min-h-[500px] flex items-end pb-16 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop" alt="JTI HQ" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="premium_tobacco_hero_1778404448515.png" alt="Tobacco Plantation" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#F5F5F5]/95 via-[#F5F5F5]/80 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <p className="text-xs font-medium uppercase tracking-[0.08em] text-[#4CAF50]">ABOUT JTI</p>

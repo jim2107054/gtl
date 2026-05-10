@@ -39,17 +39,29 @@ export default function Leadership() {
           <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {executives.map((exec, i) => (
               <div key={i} className="exec-card bg-white border border-[#E0E0E0] rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#4CAF50] transition-all duration-300 group">
-                <div className="aspect-[3/4] bg-gradient-to-br from-[#F5F5F5] to-[#E0E0E0] flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-[#4CAF50]/10 flex items-center justify-center text-2xl font-bold text-[#4CAF50]">
-                    {exec.name.split(' ').map(n => n[0]).join('')}
-                  </div>
+                <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+                  <img 
+                    src={[
+                      'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop',
+                      'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=800&h=1200&fit=crop'
+                    ][i]} 
+                    alt={exec.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-base font-semibold">{exec.name}</h3>
                   <p className="text-sm text-[#4CAF50] font-medium mt-1">{exec.title}</p>
                   <p className="text-sm text-[#666666] mt-2 line-clamp-2">{exec.bio}</p>
-                  <div className="mt-4">
+                  <div className="mt-4 flex items-center justify-between">
                     <Linkedin className="w-5 h-5 text-[#999999] hover:text-[#4CAF50] cursor-pointer transition-colors" />
+                    <span className="text-[10px] text-gray-300 font-bold uppercase tracking-widest">OFFICIAL</span>
                   </div>
                 </div>
               </div>
@@ -63,22 +75,26 @@ export default function Leadership() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.08em] text-[#999999]">GOVERNANCE</p>
           <h2 className="text-3xl font-semibold mt-2">Board of Directors</h2>
-          <div className="grid sm:grid-cols-2 gap-4 mt-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {[
-              { name: 'Hiroshi Kimura', role: 'Chairman of the Board' },
-              { name: 'Eddy Pirard', role: 'Director' },
-              { name: 'Takeshi Suzuki', role: 'Director' },
-              { name: 'Maria Gonzalez', role: 'Independent Director' },
-              { name: 'Peter Schmidt', role: 'Independent Director' },
-              { name: 'Anne Dubois', role: 'Independent Director' },
+              { name: 'Hiroshi Kimura', role: 'Chairman of the Board', img: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400&h=400&fit=crop' },
+              { name: 'Eddy Pirard', role: 'Director', img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&h=400&fit=crop' },
+              { name: 'Takeshi Suzuki', role: 'Director', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop' },
+              { name: 'Maria Gonzalez', role: 'Independent Director', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop' },
+              { name: 'Peter Schmidt', role: 'Independent Director', img: 'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400&h=400&fit=crop' },
+              { name: 'Anne Dubois', role: 'Independent Director', img: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop' },
             ].map((member, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 flex items-center gap-4 hover:shadow-sm transition-shadow">
-                <div className="w-12 h-12 rounded-full bg-[#F5F5F5] flex items-center justify-center text-sm font-semibold text-[#4CAF50]">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+              <div key={i} className="bg-white rounded-xl p-6 flex items-center gap-4 hover:shadow-sm transition-all group overflow-hidden">
+                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 relative border-2 border-[#E0E0E0] group-hover:border-[#4CAF50] transition-colors">
+                  <img 
+                    src={member.img} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <p className="font-medium">{member.name}</p>
-                  <p className="text-sm text-[#666666]">{member.role}</p>
+                  <p className="font-semibold text-[#1A1A1A]">{member.name}</p>
+                  <p className="text-sm text-[#4CAF50] font-medium">{member.role}</p>
                 </div>
               </div>
             ))}

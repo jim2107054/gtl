@@ -26,7 +26,7 @@ export default function Products() {
       <section className="relative bg-[#F5F5F5] min-h-[400px] lg:min-h-[500px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200&h=600&fit=crop" 
+            src="unmanufactured_tobacco_leaves_1778405022563.png" 
             alt="Tobacco leaves" 
             className="w-full h-full object-cover opacity-30"
           />

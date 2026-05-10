@@ -45,7 +45,7 @@ export default function Production() {
     <div className="pt-16 lg:pt-[72px]">
       {/* Hero */}
       <section className="relative min-h-[400px] lg:min-h-[500px] flex items-end pb-16 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop" alt="Production" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="premium_tobacco_hero_1778404448515.png" alt="Production Facility" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#F5F5F5]/95 via-[#F5F5F5]/70 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <p className="text-xs font-medium uppercase tracking-[0.08em] text-[#4CAF50]">PRODUCTION</p>
@@ -112,10 +112,9 @@ export default function Production() {
               </div>
               <div className={`rounded-2xl overflow-hidden ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <img 
-                  src={`https://source.unsplash.com/800x600/?factory,industrial,${step.title}`}
+                  src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=500&fit=crop"
                   alt={step.title}
                   className="w-full h-[250px] lg:h-[320px] object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=500&fit=crop'; }}
                 />
               </div>
             </div>
@@ -149,7 +148,7 @@ export default function Production() {
               </Link>
             </div>
             <div className="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=500&fit=crop" alt="DIET Processing" className="w-full h-[300px] object-cover" />
+              <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=500&fit=crop" alt="Advanced DIET Laboratory" className="w-full h-[300px] object-cover" />
             </div>
           </div>
         </div>
@@ -170,7 +169,7 @@ export default function Production() {
               </Link>
             </div>
             <div className="rounded-2xl overflow-hidden lg:order-1">
-              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=500&fit=crop" alt="Testing Lab" className="w-full h-[300px] object-cover" />
+              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=500&fit=crop" alt="Quality Control Testing" className="w-full h-[300px] object-cover" />
             </div>
           </div>
         </div>
